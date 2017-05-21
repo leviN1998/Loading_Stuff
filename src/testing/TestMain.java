@@ -11,6 +11,8 @@ public class TestMain {
     public static void main(String[] args){
         JsonLoader loader = new JsonLoader();
 
+        //HAAAAAALLLLOOOOOOOO TEST
+
         try {
             loader.loadFile("sprite");
         } catch (FileNotFoundException e) {
