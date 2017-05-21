@@ -13,6 +13,8 @@ public class TestMain {
 
         //HAAAAAALLLLOOOOOOOO TEST
 
+        System.out.println();
+
         try {
             loader.loadFile("sprite");
         } catch (FileNotFoundException e) {
