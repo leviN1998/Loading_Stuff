@@ -14,6 +14,7 @@ public class TestMain {
         //HAAAAAALLLLOOOOOOOO TEST
 
         System.out.println();
+        System.out.println();
 
         try {
             loader.loadFile("sprite");
