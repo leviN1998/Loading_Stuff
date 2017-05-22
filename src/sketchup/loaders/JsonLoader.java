@@ -3,11 +3,13 @@ package sketchup.loaders;
 import org.lwjgl.Sys;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector4f;
+import sketchup.files.RawSprite;
 import sketchup.files.RawSpriteSheet;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Scanner;
 import java.util.function.BooleanSupplier;
 
@@ -17,16 +19,16 @@ import java.util.function.BooleanSupplier;
 public class JsonLoader {
 
 
-    public void loadFile(String path) throws FileNotFoundException{
+    public List<RawSprite> loadFile(String path) throws FileNotFoundException{
         String newPath = "res/"+path;
-        this.loadFile(new File("res/"+path+".json"), newPath);
+        return this.loadFile(new File("res/"+path+".json"), newPath);
     }
 
-    public void loadFile(File f, String path) throws FileNotFoundException{
-        this.loadFile(new Scanner(f), path);
+    public List<RawSprite> loadFile(File f, String path) throws FileNotFoundException{
+        return this.loadFile(new Scanner(f), path);
     }
 
-    public void loadFile(Scanner sc, String path){
+    public List<RawSprite> loadFile(Scanner sc, String path){
 
         RawSpriteSheet spriteSheet = new RawSpriteSheet(path);
 
@@ -102,6 +104,8 @@ public class JsonLoader {
         }
 
         spriteSheet.calcSprites();
+
+        return spriteSheet.getSprites();
 
 
     }
