@@ -22,7 +22,7 @@ public class RawMaterial {
         this.name = name;
         hasFile = true;
 
-        if(name == null){
+        if(name.equals("noName")){
             hasFile = false;
         }
     }

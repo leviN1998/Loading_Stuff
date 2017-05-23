@@ -26,11 +26,15 @@ public class RawMtlList {
         Kds = new ArrayList<>();
         Kss = new ArrayList<>();
         names = new ArrayList<>();
+        mats = new ArrayList<>();
 
     }
 
     public void calcMats(){
-        //TODO:!!!
+        for(int i = 0;i<names.size();i++){
+            RawMaterial mtl = new RawMaterial(headers.get(i), Kas.get(i), Kds.get(i), Kss.get(i), names.get(i));
+            mats.add(mtl);
+        }
     }
 
     public List<String> getHeaders() {
@@ -51,5 +55,9 @@ public class RawMtlList {
 
     public List<String> getNames() {
         return names;
+    }
+
+    public List<RawMaterial> getMats(){
+        return mats;
     }
 }

@@ -14,10 +14,9 @@ import java.util.List;
 public class TestMain {
     public static void main(String[] args){
 
-        MtlLoader mtlLoader = new MtlLoader();
 
         try {
-            mtlLoader.loadFile("Untitled");
+            MtlLoader.loadFile("Untitled");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
