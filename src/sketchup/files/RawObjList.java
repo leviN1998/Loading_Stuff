@@ -19,6 +19,8 @@ public class RawObjList {
     private List<ObjFace> faces;
 
 
+
+
     public RawObjList() {
         textureNames = new ArrayList<>();
         vertices = new ArrayList<>();
@@ -34,6 +36,27 @@ public class RawObjList {
     public void generateFace(ObjVertex v1, ObjVertex v2, ObjVertex v3, int textureID){
         ObjFace face = new ObjFace(v1, v2, v3, textureID);
         faces.add(face);
+    }
+
+    public List<ObjFace> getObjFacesFromTex(int tex){
+        if(tex -1 > textureNames.size()){
+            return null;
+        }
+        List<ObjFace> output = new ArrayList<>();
+        for(ObjFace face : faces){
+            if (face.getMatID() == tex) {
+                output.add(face);
+            }
+        }
+        return output;
+    }
+
+    public List<ObjFace>[] getModel(){
+        List<ObjFace>[] output = new ArrayList[textureNames.size()];
+        for(int i = 0;i<textureNames.size();i++){
+            output[i] = getObjFacesFromTex(i);
+        }
+        return output;
     }
 
     public List<String> getTextureNames() {

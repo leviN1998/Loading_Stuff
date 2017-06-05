@@ -5,8 +5,6 @@ package sketchup.files;
  */
 public class Material {
 
-    /**
-     * Soll ein TexturedModel und die nicht im texturedModel definierten werte besitzen!!
-     */
+
 
 }

@@ -2,11 +2,13 @@ package sketchup.loaders;
 
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
+import sketchup.files.ObjFace;
 import sketchup.files.ObjVertex;
 import sketchup.files.RawObjList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -14,15 +16,15 @@ import java.util.Scanner;
  */
 public class ObjLoader {
 
-    public static void loadObj(String path) throws FileNotFoundException {
-        loadObj(new File("res/"+ path + ".obj"));
+    public static List<ObjFace>[] loadObj(String path) throws FileNotFoundException {
+        return loadObj(new File("res/"+ path + ".obj"));
     }
 
-    public static void loadObj(File f) throws FileNotFoundException {
-        loadObj(new Scanner(f));
+    public static List<ObjFace>[] loadObj(File f) throws FileNotFoundException {
+        return loadObj(new Scanner(f));
     }
 
-    public static void loadObj(Scanner sc){
+    public static List<ObjFace>[] loadObj(Scanner sc){
 
         RawObjList list = new RawObjList();
         int currentTexID = -1;
@@ -75,6 +77,8 @@ public class ObjLoader {
             }
 
         }
+
+        return list.getModel();
 
     }
 
